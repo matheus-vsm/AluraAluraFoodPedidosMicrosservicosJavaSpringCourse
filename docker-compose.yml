@@ -2,6 +2,16 @@
 #   DB_USER_MYSQL  = root (usuário)
 #   DB_PASSWORD_MYSQL = senha do root
 # O container usa DB_PASSWORD_MYSQL como MYSQL_ROOT_PASSWORD; a aplicação usa as duas variáveis.
+# Subir o container MySQL com o comando: docker compose up -d
+# Parar o container MySQL com o comando: docker compose down
+# Ver os logs do container MySQL com o comando: docker compose logs -f mysql
+# Ver o status do container MySQL com o comando: docker compose ps
+# Ver as imagens do container MySQL com o comando: docker images
+# Ver os volumes do container MySQL com o comando: docker volume ls
+# Ver os contêineres do MySQL com o comando: docker ps
+# Ver os contêineres do MySQL com o comando: docker ps -a
+# Conectar ao MySQL com o comando: docker exec -it pedidos-mysql mysql -u root -p
+
 services:
   mysql:
     image: mysql:8.0
@@ -10,7 +20,7 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD_MYSQL}
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-alurafood_pedidos}
+      MYSQL_DATABASE: alurafood_pedidos
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
