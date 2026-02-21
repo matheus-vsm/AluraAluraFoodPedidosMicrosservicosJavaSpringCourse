@@ -10,17 +10,16 @@
 # Ver os volumes do container MySQL com o comando: docker volume ls
 # Ver os contêineres do MySQL com o comando: docker ps
 # Ver os contêineres do MySQL com o comando: docker ps -a
-# Conectar ao MySQL com o comando: docker exec -it pedidos-mysql mysql -u root -p
+# Conectar ao MySQL com o comando: docker exec -it alurafood-mysql mysql -u root -p
 
 services:
   mysql:
     image: mysql:8.0
-    container_name: pedidos-mysql
+    container_name: alurafood-mysql
     ports:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD_MYSQL}
-      MYSQL_DATABASE: alurafood_pedidos
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
